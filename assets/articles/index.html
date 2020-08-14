@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Manish Bharti - Blogs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="responsiveNav">
+            <svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></path>
+            </svg>
+        </div>
+        <aside>
+            <h1>Blog's</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="index.html" class="active">JavaScript Fundamentals: Syntax & Structure</a>
+                <a href="JSFundamentalsDataTypes.html">JavaScript Fundamentals: Data Types</a>
+                <a href="JSFundamentalsWorkingStrings.html">JavaScript Fundamentals: Working with Strings</a>
+                <a href="JSFundamentalsVariablesScopeHoisting.html">JavaScript Fundamentals: Variables, Scope & Hoisting</a>
+                <a href="JSFundamentalsMasteringArrays.html">JavaScript Fundamentals: Mastering Arrays</a>
+                <a href="JSFundamentalsMasteringObjects.html">JavaScript Fundamentals: Mastering Objects</a>
+                <a href="howtoAddNPMpackage.html">How to make your json in NPM Package</a>
+                <!-- <a href="Testimonials">Testimonials</a>
+                <a href="Contact">Contact</a> -->
+            </nav>
+        </aside>
+
+        <div class="screens">
+
+            <section class="screen article active" data-page="about">
+               <div class="topBar">
+                  <h1>JavaScript Fundamentals: Syntax & Structure</h1>
+               </div>
+
+               <section class="section-content">
+                  <p>As with any language, programming languages are defined by sets of rules. The rules (or syntax) are what we follow when we write our code, which form the logical structure of our programs.</p>
+                  <blockquote>
+                     This article marks the beginning of a series I’ll be writing on learning the JavaScript fundamentals. Be sure to follow me if you’d like to keep track!
+                  </blockquote>
+                  <p>Let’s dive right in with the building blocks of JavaScript. We’ll be looking at values (literals & variables), camel casing, unicode, semi colons, indentation, white spacing, commenting, case sensitivity, keywords, operators and expressions! </p>
+                  <p>By taking the time to learn the fundamentals, we’ll be well on our way toward building more functional and readable code!</p>
+                  <p>As well as being passionate about my job, I also have other hobbies whenever I allow myself some down time. There's nothing better than a watching good movie, getting lost in the sometimes funny, exciting, adventurous. So if you cant find me at work or at home knee deep in code, I'll be at the cinema getting lost in a fantastical fictional world.</p>
+               </section>
+
+               <section class="section-content">
+                  <div class="section-inner sectionLayout--insetColumn">
+                     <h3>JavaScript Values</h3>
+                     <p>In JavaScript there are two types of values: Fixed values (or <strong>literals</strong>) and Variable values (<strong>variables</strong>).</p>
+                     <h4>Literals</h4>
+                     <p>Literals are defined as values that are written in our code, such as numbers, strings, booleans (true or false), as well as object and array literals (don’t worry too much about these just yet). Some examples include:</p>
+                     <pre>10          // A number (can be a decimal eg. 10.5)<br>'Boat'      // A string (can be in double "" or single '' quotes)<br>true        // A boolean (true or false)<br><code>['a', 'b']                           // An array<br>{color: 'blue', shape: 'Circle'}     // An object</code></pre>
+                     <p>
+                        <em>Note: I’ll be looking at data types in detail in my next article, stay tuned!</em>
+                     </p>
+                     <h4>Variables</h4>
+                     <p>Variables are named values which store data. In JavaScript we declare our variables with the var, let or const keywords, and we assign values with the equal sign =.</p>
+                     <p>For example, key is defined as a variable. Which is assigned the value abc123:</p>
+                     <pre>let key; <br>key = abc123;</pre>
+                     <p>When to use var? Don’t. It really should only be used when working with legacy code. Its the old pre-ES6 syntax.</p>
+                     <p>When to use let? Use it if your variable needs to be updated within the program (it can be reassigned).</p>
+                     <p>When to use const? Use it if your variable holds a constant value. It must be assigned at the time of declaration and it cannot be reassigned.</p>
+                     <h3>Camel Case</h3>
+                     <p>What if our variable name consists of more than one word? For example, how would we declare a variable we wish to name “first name”?</p>
+                     <p>Could we use <strong>hyphens? </strong>e.g. <code class="markup--code markup--p-code">first-name </code>Nope, <code class="markup--code markup--p-code">-</code>’s are reserved for subtractions in JavaScript.</p>
+                     <p>What about <strong>underscores?</strong> e.g. <code class="markup--code markup--p-code">first_name</code> We could, but it has a tendency to make our code look messy and confusing.</p>
+                     <p>The solution? <strong>camel case</strong>! e.g. <code class="markup--code markup--p-code">firstName</code>. The first word is lower-case, the first letter of any subsequent words are upper-case. <em>This is the convention within the community.</em></p>
+                     <p>Note: It’s quite acceptable however, to name your <code class="markup--code markup--p-code">const</code> variables in upper-case with underscores e.g. <code class="markup--code markup--p-code">const DEFAULT_PLAYBACK_SPEED = 1;</code> This would make it clear to others that the value is fixed. Otherwise just stick with camelCase!</p>
+                     <h3>Unicode</h3>
+                     <p>JavaScript uses the unicode character set. Unicode covers just about all of the characters, punctuations, and symbols that there are! Check out the <a href="https://unicode-table.com" data-href="https://unicode-table.com" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">complete reference</a>. This is great as we can write our names in any language, and we could even use <a href="https://emojipedia.org/" data-href="https://emojipedia.org/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">emojis</a> as variable names (because why not? 🤷🏻&zwj;♂️).</p>
+                     <h3>Semicolons</h3>
+                     <p>JavaScript programs are made up of a number of instructions known as statements. Such as:</p>
+                     <pre><code class="markup--code">// These are all examples of JavaScript statements:</code></pre>
+                     <pre><code class="markup--code">let a = 1000;</code></pre>
+                     <pre>a = b + c;</pre>
+                     <pre><code class="markup--code">const time = Date.now();</code></pre>
+                     <p>JavaScript statements often end in a semicolon&nbsp;<code class="markup--code markup--p-code">;</code>.</p>
+                     <p>However, <strong>semicolons aren’t always mandatory! </strong>JavaScript does not have any issues if you don’t use them.</p>
+                     <pre><code class="markup--code>">// Still perfectly valid!</code></pre>
+                     <pre><code class="markup--code>">let a = 1000</code></pre>
+                     <pre>a = b + c</pre>
+                     <pre><code class="markup--code>">const time = Date.now()</code></pre>
+                     <p>There are however, some situations where they are mandatory. For instance when we use a <code class="markup--code markup--p-code">for</code> loop, like so:</p>
+                     <pre>for (i = 0<strong class="markup--strong markup--pre-strong">;</strong> i &lt; .length<strong class="markup--strong markup--pre-strong">;</strong> i++) { <br>  // code to execute<br>}</pre>
+                     <p>When using a block statement however, semicolons are <em>not</em> to be included after the curly braces, for example:</p>
+                     <pre><code class="markup--code>">if (name == "Samantha") {<br>  // code<br>}                           // &lt;- no ';'</code></pre>
+                     <pre>//or,</pre>
+                     <pre>function people(name) {<br>  // code<br>}                           <code class="markup--code>">// &lt;- no ';'</code></pre>
+                     <p>If we’re using an object however, such as:</p>
+                     <pre><code class="markup--code"> u-paddingRight0 u-marginRight0">const person = {<br>  firstName: "Samantha",<br>  lastName: "Doe",<br>  age: 30,<br>  eyeColor: "blue"<br>}<strong class="markup--strong markup--pre-strong">;                          </strong>// the ';' is mandatory</code></pre>
+                     <p>Then our&nbsp;<code class="markup--code markup--p-code">;</code>’s are required!</p>
+                     <p>Over time you’ll start to memorize where semicolons can and can’t be used. Until then it’s wise to use them at the end of all statements (with the exception of block statements!)</p>
+                     <p>Plus it really is a common convention is to use them regardless, it’s considered good practice as its reduces the probability of errors.</p>
+                     <p><em>Note: Once you really get going with JavaScript, start using a linter such as </em><a href="https://eslint.org/" data-href="https://eslint.org/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank"><em>ESLint</em></a><em>. It’ll automatically find syntax errors in your code and make life much easier!</em></p>
+                     <h3>Indentation</h3>
+                     <p>In theory we could write an entire JavaScript program on one line. However this would be just about impossible to read and maintain. Which is why we use lines and indentation. Lets use a conditional statement as an example:</p>
+                     <pre><code class="markup--code>">if (loginSuccessful === 1) {<br>  // code to run if true<br>} else {<br>  // code to run if false<br>}</code></pre>
+                     <p>Here we can see that any code inside a block is indented. In this case its our comment code <code class="markup--code markup--p-code">// code to run if true</code> and then <code class="markup--code markup--p-code">// code to run if false.</code> You can choose to indent your lines with either a few spaces (2 or 4 are common) or a tab. It’s entirely your choice, the main thing is to be consistent!</p>
+                     <p>If we are nesting our code, we’d indent further like so:</p>
+                     <pre>if (loginAttempts &lt; 5){<br>  if (loginAttempts &lt; 3){<br>    alert("&lt; 3");<br>  } else {<br>    alert("between 3 and 5");<br>  }<br>} else {<br>  if (loginAttempts &gt; 10){<br>    alert("&gt; 10");<br>  } else {<br>    alert("between 5 and 10");<br>  }<br>}</pre>
+                     <p>By applying indentation you’ll have much cleaner, more maintainable and easier to read code!</p>
+                     <h3>White Space</h3>
+                     <p>JavaScript only requires one space between keywords, names and identifiers, otherwise any white space is completely ignored. This means that as far as the language is concerned, there is no difference between the following statements:</p>
+                     <pre><code class="markup--code>">const visitedCities="Melbourne, "+"Montreal, "+"Marrakech";<br>const visitedCities = "Melbourne, " + "Montreal, " + "</code>Marrakech<code class="markup--code>">";</code></pre>
+                     <p>I’m sure you’ll find the second line much more readable. And another example:</p>
+                     <pre>let x=1*y;       <br>let x = 1 * y;    </pre>
+                     <p>Again, the second line is much easier to read and debug! So feel free to space out your code in a way that makes sense! For that reason, this is also an acceptable use of white space:</p>
+                     <pre><code class="markup--code>">const cityName         = "Melbourne";<br>const cityPopulation   = </code>5000001<code class="markup--code>">;<br>const cityAirport      = "MEL";</code></pre>
+                     <h3>Commenting</h3>
+                     <p>A comment is un-executable code. They’re useful for providing an explanation of some code within a program. And also to ‘comment out’ a section of code to prevent execution&#8202;—&#8202;often used when testing an alternative piece of code.</p>
+                     <p>There are two types of comments in JavaScript:</p>
+                     <pre>// Comment goes here</pre>
+                     <pre>/* Comment goes here */</pre>
+                     <p>The first syntax is a single line comment. The comment goes to the right of the <code class="markup--code markup--p-code">//</code></p>
+                     <p>The second a multi-line comment. The comment goes in between the asterisks <code class="markup--code markup--p-code">/* here */</code></p>
+                     <p>A longer multi-line comment:</p>
+                     <pre>/* This is <br>a comment spanning<br>multiple lines */</pre>
+                     <h3>Identifiers</h3>
+                     <p>In JavaScript, the name of a variable, function, or property is known as an identifier. Identifiers may consist of letters, numbers, <code class="markup--code markup--p-code">$</code> and <code class="markup--code markup--p-code">_</code>. No other symbols are permitted, and they cannot begin with a number.</p>
+                     <pre>// Valid :)</pre>
+                     <pre>Name<br>name<br>NAME<br>_name<br>Name1<br>$name</pre>
+                     <pre>// Invalid :(</pre>
+                     <pre>1name<br>n@me<br>name!</pre>
+                     <h3>Case Sensitivity</h3>
+                     <p>JavaScript is case sensitive! An identifier named <code class="markup--code markup--p-code">test</code> is different from <code class="markup--code markup--p-code">Test</code>.</p>
+                     <p>The following will throw an error:</p>
+                     <pre>function <strong class="markup--strong markup--pre-strong">test</strong>() {<br>  alert("This is a test!");<br>}</pre>
+                     <pre>function showAlert() {<br>  <strong class="markup--strong markup--pre-strong">Test</strong>();                     // error! test(); is correct<br>}</pre>
+                     <p>In order to ensure that our code is readable, it’s best to try to vary our names, so no identifiers are found looking too similar.</p>
+                     <h3>Reserved Words</h3>
+                     <p>There are a number of words within JavaScript that may not be used as identifiers. Those words are reserved by the language, as they have built-in functionality. Such as:</p>
+                     <pre><code class="markup--code>">break, do, instanceof, typeof, case, else, new, var, catch, finally, return, void, continue, for, switch, while, debugger, function, this, with, default, if, throw, delete, in, try, class, enum, extends, super, const, export, import.</code></pre>
+                     <p>See the full <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Reserved_keywords_as_of_ECMAScript_2015" data-href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Reserved_keywords_as_of_ECMAScript_2015" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">list of reserved keywords</a>.</p>
+                     <p>You certainly don’t need to commit these words to memory! If you get any strange syntax errors pointing to a variable, you can check the list and change the name.</p>
+                     <h3>JavaScript Operators</h3>
+                     <p>Arithmetical operators <code class="markup--code markup--p-code">+ -</code> <code class="markup--code markup--p-code">*</code> and <code class="markup--code markup--p-code">/</code> are primarily used when performing calculations within JavaScript, such as:</p>
+                     <pre>(2 + 2) * 100</pre>
+                     <p>The assignment operator <code class="markup--code markup--p-code">=</code> is used to assign values to our variables:</p>
+                     <pre>let a, b, c;<br>a = 1;<br>b = 2;<br>c = 3;</pre>
+                     <h3>JavaScript Expressions</h3>
+                     <p>An expression is when we combine values, variables and operators to compute a new value (known as a evaluation). Such as:</p>
+                     <pre>10 * 10    // Evaluates to 100</pre>
+                     <pre>let x = 5<br>x * 10     // Evaluates to 50</pre>
+                     <pre>const firstName = "Samantha";<br>const lastName = "Doe";<br>firstName + " " + lastName;    // Evaluates to: Samantha Doe</pre>
+                     <h3>Conclusion</h3>
+                     <p>And there we go! This article aimed to provide a general overview of the basic syntax and structure of JavaScript. We’ve looked at many of the common conventions, however, remember you can be somewhat flexible&#8202;—&#8202;especially when working in collaborative environments with their own particular standards.</p>
+                     <p>Syntax and structuring both have an important role the play for both the functionality of our programs as well as for code readability and maintainability.</p>
+                     <!-- <p>Next up this series.. <a href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" data-href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" class="markup--anchor markup--p-anchor" target="_blank">JavaScript Fundamentals: Data Types</a></p> -->
+                  </div>
+               </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

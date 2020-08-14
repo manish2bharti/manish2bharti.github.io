@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Manish Bharti - Blogs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" />
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="responsiveNav">
+            <svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></path>
+            </svg>
+        </div>
+        <aside>
+            <h1>Blog's</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="index.html" >JavaScript Fundamentals: Syntax & Structure</a>
+                <a href="JSFundamentalsDataTypes.html" class="active">JavaScript Fundamentals: Data Types</a>
+                <a href="JSFundamentalsWorkingStrings.html">JavaScript Fundamentals: Working with Strings</a>
+                <a href="JSFundamentalsVariablesScopeHoisting.html">JavaScript Fundamentals: Variables, Scope & Hoisting</a>
+                <a href="JSFundamentalsMasteringArrays.html">JavaScript Fundamentals: Mastering Arrays</a>
+                <a href="JSFundamentalsMasteringObjects.html">JavaScript Fundamentals: Mastering Objects</a>
+                <a href="howtoAddNPMpackage.html">How to make your json in NPM Package</a>
+
+                <!-- <a href="Testimonials">Testimonials</a>
+                <a href="Contact">Contact</a> -->
+            </nav>
+        </aside>
+
+        <div class="screens">
+
+            <section class="screen article active" data-page="about">
+               <div class="topBar">
+                  <h1>JavaScript Fundamentals: Data Types</h1>
+               </div>
+
+               <section class="section-content">
+                  <p>Let’s take a look at data type fundamentals in JavaScript! Firstly we’ll learn about each of the different data types, before looking at methods we can use to convert our data (i.e. how we turn values into numbers, strings & Booleans).</p>
+                  <p>By the end of the article, you’ll have an increased understanding of working with many of the major data types. Which is a fundamental skill to pickup, as you move forward with JavaScript.</p>
+                  <blockquote>
+                        This article is part of a series I’m writing on learning the JavaScript fundamentals. Be sure to follow me if you’d like to keep track!
+                     </blockquote>
+               </section>
+
+               <section class="section-content">
+                  <div class="section-inner sectionLayout--insetColumn">
+                    <h3>What are Data&nbsp;Types?</h3>
+                    <p>Data types are classifications of specific types of data. We have numbers, Booleans (true or false), strings (character sequences enclosed in quotes <code class="markup--code markup--p-code">‘’</code> or <code class="markup--code markup--p-code">“”</code>) and more complex data types known as arrays and objects (we’ll look at these a bit later).</p>
+                    <pre><code>let a = 1;           // a is a number<br>let a = "Avocado";   // a is a string<br>let a = true;        // a is a Boolean<br>let a;               // a is undefined</code></pre>
+                    <p>For example, <code class="markup--code markup--p-code">a</code>, has been defined as a variable using the <code class="markup--code markup--p-code">let</code> keyword. We can assign any data type to it, or even just initialize it by leaving it blank.</p>
+                    <p><strong>Why Does it matter?</strong></p>
+                    <p>When storing data in a variable, it’s important that we know its type, as that determines what we can do with it! For instance, you can add numbers <code class="markup--code markup--p-code">1 + 1 = 2</code>, and that’s fine. However, if you attempt to add numbers when they have the data type of string <code class="markup--code markup--p-code">“1” + “1” = 11</code> Your result will be 1 <em>and</em> 1, not the sum equaling 2 as you may have expected. Lets now take a look at each type in detail.</p>
+                    <h4>Numbers</h4>
+                    <p>Numbers in JavaScript can be written with <em>or</em> without decimals, such as:</p>
+                    <pre>let a = 1;<br>let b = 1.1;</pre>
+                    <p>And they can be abbreviated using the <code class="markup--code markup--p-code">e</code> exponent, for example:</p>
+                    <pre>let million = 1000000;</pre>
+                    <pre>// or..</pre>
+                    <pre>let million = 1<strong>e</strong>6;</pre>
+                    <p>The 6 is the amount of 0’s, which in this case equals one million.</p>
+                    <p>There are a few special values that we often encounter when working with numbers, <code class="markup--code markup--p-code">Infinity</code>, <code class="markup--code markup--p-code">-Infinity</code> and <code class="markup--code markup--p-code">NaN.</code></p>
+                    <p>If you attempt to divide a number by 0, such as:</p>
+                    <pre>3/0    // Infinity</pre>
+                    <p>The result will be Infinity. As the JavaScript computes the result outside its largest possible number of <code class="markup--code markup--p-code">9007199254740992</code>. The opposite would yield:</p>
+                    <pre>-3/0   // -Infinity</pre>
+                    <p>The value of <code class="markup--code markup--p-code">NaN</code> represents ‘Not a Number’, meaning the value isn’t considered a number. This would generate in illegal expressions, such as:</p>
+                    <pre>let a = 100 / "Greg";     // a will be NaN</pre>
+                    <p>As of course you can’t divide a number by a string!</p>
+                    <p>However, JavaScript is smart enough to convert your data type in some cases, such as:</p>
+                    <pre>let a = 100 / "2"         // a will be 50</pre>
+                    <p><span class="markup--quote markup--p-quote is-other">JavaScript will use <em>type coercion</em> to consider your “2” string to be a number in this case.</span></p>
+                    <h4>Strings</h4>
+                    <p>As mentioned earlier, strings are sequences of characters that exist within either single or double quotes:</p>
+                    <pre>let foodChoice = 'Crunchy cheddar jalapeno cheetos';<br>let foodChoice = "Crunchy cheddar jalapeno cheetos";</pre>
+                    <p>Strings aren’t limited to letters either, numbers and symbols are also acceptable. It’s the quotes that define our string data type.</p>
+                    <p>It really comes down to personal preference as to whether you use single or double quotes, consistency is what’s most important within your code!</p>
+                    <pre>let eater = “Bruce”;<br>let foodChoice = "Crunchy cheddar jalapeno cheetos";</pre>
+                    <pre>alert(eater + " loves " + foodChoice + "!")</pre>
+                    <pre>// Bruce loves Crunchy cheddar jalapeno cheetos!</pre>
+                    <h4>Booleans</h4>
+                    <p>We use the keywords <code class="markup--code markup--p-code">true</code> and <code class="markup--code markup--p-code">false</code> to set variables as Boolean data type.</p>
+                    <pre>let a = true;<br>let b = false;</pre>
+                    <p>Booleans are especially useful when performing mathematical operations, in determining whether an expression is true or false, such as:</p>
+                    <pre>10 &gt; 5     // true, 10 is greater than 5<br>5 &gt; 10     // false, 5 is not greater than 10<br>5 &lt; 10     // true, 5 is less than 10<br>5 = 5      // true, 5 equals 5</pre>
+                    <p>If we assign our expression to a variable, such as:</p>
+                    <pre>let a = 10 &gt; 5;   // true</pre>
+                    <p>Our variable <code class="markup--code markup--p-code">a</code> will of course, hold the value of true.</p>
+                    <p>Booleans are used within programs when we need to perform operations based on the evaluation of truth or falsehood. For example, do the received login credentials evaluate to true? Grant access ✔️. Or are they false? Deny access ❌.</p>
+                    <h4>Arrays</h4>
+                    <p>An array is a slightly more complex data type, however they are really quite simple to grasp! An array is a way to have multiple values held by a single variable. For example:</p>
+                    <pre>let colors = ["red", "green", "blue", "yellow"]</pre>
+                    <p>An array is defined by using square brackets <code class="markup--code markup--p-code">[]</code> as in the above example. We’ve assigned an array to the variable <code class="markup--code markup--p-code">colors</code>, contained within are our <strong>elements</strong> of red, green, blue and yellow.</p>
+                    <p>A call to our <code class="markup--code markup--p-code">colors</code> variable will output our entire array of <code class="markup--code markup--p-code">[“red”, “green”, “blue”, “yellow”]</code>.</p>
+                    <p>The true power of arrays is that their contents can be iterated, we can call out a single item within the array variable. To do this we use an index number, inside of square brackets:</p>
+                    <pre>colors[0]     // red<br>colors[1]     // green<br>colors[2]     // blue<br>colors[3]     // yellow<br>colors[4]     // undefined</pre>
+                    <p><em>Note: </em>Our first array element always has the index position of 0. So remember to start counting from 0 instead of 1!</p>
+                    <p>Arrays have a large amount of flexibility, they can have elements added, removed and changed. Let’s now take a look at our final data type..</p>
+                    <h4>Objects</h4>
+                    <p>The object data type is typically used for holding large amounts of related data. Object data values are stored in key/value pairs, the pairs make for a logical way to store and access our data, using curly braces <code class="markup--code markup--p-code">{}</code>, for example:</p>
+                    <pre>let user <code>= {firstName:"Jane", lastName:"Doe", age:34, location:"Vancouver"};</code></pre>
+                    <p>For clarity we’d write this out over multiple lines:</p>
+                    <pre><code>let user = {<br>    firstName: "Jane",<br>    lastName: "Doe",<br>    age: 34,<br>    location: "Vancouver"<br>};</code></pre>
+                    <p>Our above example contains four properties <code class="markup--code markup--p-code">firstName</code>, <code class="markup--code markup--p-code">lastName</code>, <code class="markup--code markup--p-code">age</code>, and <code class="markup--code markup--p-code">location</code>. Our properties can be of any data type, which are accessed using <em>objectName.property </em>as follows:</p>
+                    <pre>user.firstName     // Jane<br>user.lastName      // Doe<br>user.age           // 34<br>user.location      // Vancouver</pre>
+                    <p>And that concludes our first look at data types! Lets now see how we can perform data type conversions.</p>
+                    <h3>Converting Data&nbsp;Types</h3>
+                    <p>As we’ve now seen, data types are classifications of a particular type of data. And it’s the type that determines which operations are able to be performed on the data. As we write programs, we’ll often need to convert our data types in order to perform tasks.</p>
+                    <p>JavaScript is intelligent enough to convert <em>some</em> values for us, this is known as type coercion:</p>
+                    <pre>"15" - "5"    // 10<br>"15" / "3"    // 5</pre>
+                    <p>The above will work as our strings evaluate to numbers. However,</p>
+                    <pre>"5" + "5"   // 55</pre>
+                    <p>If we’re using the <code class="markup--code markup--p-code">+</code> operator, the strings will concatenate! So if we attempted to rely on type coercion in this case, we’d see unexpected results.</p>
+                    <p>For this reason, when writing our own code, we should endeavor to convert data types ourselves&#8202;—&#8202;thus reducing potential errors. Lets now take a look at how we can go about that!</p>
+                    <h4>Converting Values to&nbsp;Strings</h4>
+                    <p>Using the <code class="markup--code markup--p-code">String()</code> method, we can explicitly convert values to strings.</p>
+                    <p>For example, lets take the <em>number</em> 100 and convert it to a <em>string literal</em> “100”.</p>
+                    <pre>String(100);     // "100"</pre>
+                    <p>And lets convert a <em>Boolean</em> false into a <em>string literal</em> “false”.</p>
+                    <pre>String(false);   // "false"</pre>
+                    <p>Within a variable, we can convert our value to a string like so:</p>
+                    <pre>let name = 5000;       // 5000<br>name = <strong>String(name);  </strong> // "5000"</pre>
+                    <p>We can check the data type of any value, using <code class="markup--code markup--p-code">typeof</code>, for example:</p>
+                    <pre><strong>typeof</strong> name;    // string</pre>
+                    <p>Alternatively, we could do this more concisely like so:</p>
+                    <pre><code>let name = 5000;<br>name.toString();    // "5000"</code></pre>
+                    <pre>(5000).toString();  // also returns "5000"</pre>
+                    <p>Regardless of the method we choose, by using <code class="markup--code markup--p-code">String()</code> or <code class="markup--code markup--p-code">n.toString()</code>, we can explicitly convert our data into string values.</p>
+                    <h4>Converting Values to&nbsp;Numbers</h4>
+                    <p>When the time comes to convert values into numbers, we use the <code class="markup--code markup--p-code">Number()</code> method in a similar manner:</p>
+                    <pre>Number("2000");   // 2000</pre>
+                    <p>We’ve turned our string “2000” into the number 2000.</p>
+                    <p>We could also convert a Boolean:</p>
+                    <pre>Number(true);    // 1<br>Number(false);   // 0</pre>
+                    <p>It should be noted however, that we cannot convert our data type into a number if there are any characters or spaces within the string! If this were to be attempted a <code class="markup--code markup--p-code">NaN</code> (not a number) would be returned.</p>
+                    <pre><code>Number("one");      // NaN<br>Number("1,000");    // NaN<br>Number("1 1");      // NaN<br>Number("01-01-19"); // NaN</code></pre>
+                    <h4>Converting Values to&nbsp;Booleans</h4>
+                    <p>We use <code class="markup--code markup--p-code">Boolean()</code> to convert strings and numbers into Boolean.</p>
+                    <p>If <strong>any</strong> value is present, it will be converted to <code class="markup--code markup--p-code">true</code>:</p>
+                    <pre>Boolean(100);     // true<br>Boolean("name");  // true<br>Boolean(" ");     // true, a space is considered a value</pre>
+                    <p>If the value is considered empty (<code class="markup--code markup--p-code">0</code>, an <code class="markup--code markup--p-code">empty string ("")</code>, <code class="markup--code markup--p-code">undefined</code>, <code class="markup--code markup--p-code">NaN</code> or <code class="markup--code markup--p-code">null</code>), it will return false:</p>
+                    <pre><code>Boolean(0);         // false<br>Boolean("");        // false, an empty string (with no space)<br>Boolean(undefined); // false<br>Boolean(NaN);       // false<br>Boolean(null);      // false</code></pre>
+                    <p>Converting numbers and strings into Boolean values is a powerful way to start to introduce logic into our programming. For instance, we could detect a missed required field on an input form, if the Boolean returns false.</p>
+                    <h3>Conclusion</h3>
+                    <p>Understanding and working with data types is a fundamental skill to posses when moving forward with JavaScript. In this article, we looked at data types and how we can work with them, using both type coercion as well as by implicitly performing our own type conversions.</p>
+                     <!-- <p>Next up this series.. <a href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" data-href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" class="markup--anchor markup--p-anchor" target="_blank">JavaScript Fundamentals: Data Types</a></p> -->
+                  </div>
+               </section>
+            </section>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Manish Bharti - Blogs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" />
+    <link rel="stylesheet" href="css/problem.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="screens">
+
+            <section class="screen problems" data-page="about">
+               <div class="topBar">
+                  <h1>Coding Problems</h1>
+               </div>
+
+               <button class="accordion">Problem 1</button>
+               <div class="panel">
+                  <p>This problem was recently asked by Google.</p>
+                  <p>Given a list of numbers and a number k, return whether any two numbers from the list add up to k.</p>
+                  <p>For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.</p>
+                  <p>Bonus: Can you do this in one pass?</p>
+                  <h4>Solution:</h4>
+                  <pre><code>
+                     function check(arr,k){
+                        var result = false;
+                        for (var i=0; i < arr.length; i++){
+                           for (var j=i+1; j < arr.length; j++){
+                              result = arr[i] + arr[j] == k;
+                              console.log(`${arr[i]} + ${arr[j]} = ${arr[i] + arr[j]}`);      
+                              if (result){
+                                 break;
+                              }
+                           }
+                           return result;
+                        }
+                     }
+                  </code></pre>
+               </div>
+
+               <button class="accordion">Problem 2</button>
+               <div class="panel">
+                  <p>This problem was asked by Uber</p>
+                  <p>Given an array of integers, return a new array such that each element at index i of the new array is the product of all the numbers in the original array except the one at i.</p>
+                  <p>For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120, 60, 40, 30, 24]. If our input was [3, 2, 1], the expected output would be [2, 3, 6].</p>
+                  <p>Follow-up: what if you can't use division?</p>
+                  <h4>Solution:</h4>
+                  <pre><code>
+                     var res = [];
+                     var totalProduct = 1;
+                     var input = [1,2,3,4,5]
+                     for(var i = 0; i < input.length; i++){
+                        totalProduct = totalProduct * input[i];
+                     }
+                     for(var i = 0; i < input.length; i++){
+                        var timesSubstracted = 0;
+                        var divisor = input[i];
+                        var dividend = totalProduct;
+                        while(divisor <= dividend){
+                        dividend = dividend - divisor;
+                        timesSubstracted++;
+                        }
+                        res.push(timesSubstracted);
+                     }
+                     console.log(res); //[120,60,40,30,24]
+                  </code></pre>
+               </div>
+
+               <button class="accordion">Problem 3</button>
+               <div class="panel">
+                  <p>This problem was asked by Google</p>
+                  <p>Given the root to a binary tree, implement serialize(root), which serializes the tree into a string, and deserialize(s), which deserializes the string back into the tree.</p>
+                  <p>For example, given the following Node class</p>
+                  <p><pre><code>class Node:
+                        def __init__(self, val, left=None, right=None):
+                            self.val = val
+                            self.left = left
+                            self.right = right</code></pre></p>
+                  <p>The following test should pass:</p>
+                  <p><pre><code>node = Node('root', Node('left', Node('left.left')), Node('right'))
+                        assert deserialize(serialize(node)).left.left.val == 'left.left'</code></pre></p>
+                  <h4>Solution:</h4>
+                  <pre><code>
+                     
+                  </code></pre>
+               </div>
+
+              
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Manish Bharti - Blogs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" />
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="responsiveNav">
+            <svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></path>
+            </svg>
+        </div>
+        <aside>
+            <h1>Blog's</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="index.html" >JavaScript Fundamentals: Syntax & Structure</a>
+                <a href="JSFundamentalsDataTypes.html">JavaScript Fundamentals: Data Types</a>
+                <a href="JSFundamentalsWorkingStrings.html">JavaScript Fundamentals: Working with Strings</a>
+                <a href="JSFundamentalsVariablesScopeHoisting.html">JavaScript Fundamentals: Variables, Scope & Hoisting</a>
+                <a href="JSFundamentalsMasteringArrays.html">JavaScript Fundamentals: Mastering Arrays</a>
+                <a href="JSFundamentalsMasteringObjects.html" class="active">JavaScript Fundamentals: Mastering Objects</a>
+                <a href="howtoAddNPMpackage.html">How to make your json in NPM Package</a>
+
+                <!-- <a href="Testimonials">Testimonials</a>
+                <a href="Contact">Contact</a> -->
+            </nav>
+        </aside>
+
+        <div class="screens">
+
+            <section class="screen article active" data-page="about">
+               <div class="topBar">
+                  <h1>JavaScript Fundamentals: Mastering Objects</h1>
+               </div>
+
+               <section class="section-content">
+                    <p>Objects in JavaScript are used to store collections of data in the format of “key: value” pairs. Contained within an object we can have any number of variables and/or functions which are then referred to as object properties and methods.</p>
+                    <blockquote>
+                            This article is part of a series I’m writing on learning the JavaScript fundamentals. Be sure to follow me if you’d like to keep track!
+                    </blockquote>   
+               </section>
+
+               <section class="section-content">
+                  <div class="section-inner sectionLayout--insetColumn">
+                        <h3>Creating an&nbsp;Object</h3>
+                        <p>Let’s work with an example! To initialize a variable <strong>car</strong> as an object<strong>, </strong>we use curly braces <strong>{}</strong>:</p>
+                        <pre>var car = {};</pre>
+                        <p>We now have an empty object which can be accessed via the Developer Tools console, by simply typing our variable name:</p>
+                        <pre>car</pre>
+                        <pre>// {} [object]</pre>
+                        <p>An empty object isn’t all that useful, so lets update it with some data:</p>
+                        <pre><code>var car = {<br>  name: 'Tesla',<br>  model: 'Model 3',<br>  weight: 1700,<br>  extras: ['heated seats', 'wood decor', 'tinted glass'],<br>  details: function() {<br>    alert('This ' + this.name + ' is a ' + this.model + ' it weighs ' + this.weight + 'kg and includes the following extras: ' + this.extras[0] + ', ' + this.extras[1] + ' and ' + this.extras[2] + '.');<br>  },<br>  display: function() {<br>    alert('This car is a ' + this.name + '.');<br>  }<br>};</code></pre>
+                        <p>Let’s access this data in our developer tools console:</p>
+                        <pre><code>car.name         // Tesla<br>car.model        // Model 3<br>car.weight       // 1700<br>car.extras[1]    // wood decor<br>car.details()    // This </code>Tesla is a Model 3 it weighs 1700kg and   includes the following extras: heated seats, wood decor and tinted glass.<br><code>car.display()    // This car is a Tesla.</code></pre>
+                        <p>As you can see, each name/value pair must be separated by a comma, and the name and value in each case are separated by a colon. The syntax will always follows this pattern:</p>
+                        <pre><code>var objectName = {<br>  member1Name: member1Value,<br>  member2Name: member2Value,<br>  member3Name: member3Value<br>};</code></pre>
+                        <p>The value of an object member can be pretty much anything&#8202;—&#8202;in our car object we have a two strings, a number, an array, and two functions. The first four items are data items, and are referred to as the object’s <strong>properties</strong>. The last two items are functions that allow the object to do something with that data, and are referred to as the object’s <strong>methods</strong>.</p>
+                        <p>This kind of object is called an <strong>object literal</strong>&#8202;—&#8202;we’ve literally written out the object contents as we’ve created it. This is in comparison to objects instantiated from classes, which we’ll take a look at later on.</p>
+                        <h3>Dot notation</h3>
+                        <p>Above, you’ve seen the object’s properties and methods accessed using <strong>dot notation</strong>. The object name <code class="markup--code markup--p-code">car</code> acts as the <strong>namespace</strong>&#8202;—&#8202;it needs to be entered first to access anything within the object. Then you write a dot, followed by the item you want to access&#8202;—&#8202;this can be the name of a simple property, an item of an array property, or a call to one of the object’s methods, for example:</p>
+                        <pre><code>car.name<br>car.extras[1]<br>car.details()</code> </pre>
+                        <h3>Deleting Properties</h3>
+                        <p>We can use the delete operator to remove properties, like so:</p>
+                        <pre><code>car.model<br>// Tesla 3</code></pre>
+                        <pre><code><strong>delete </strong>car.model</code></pre>
+                        <pre>car.model<br>// undefined</pre>
+                        <h3>Square Brackets</h3>
+                        <p>If for example, we had a multi-word property within our object, such as:</p>
+                        <pre><code>var user = {<br>  name: "Sam",<br>  age: 32,<br>  "likes potatoes": true  // multiword property name must be quoted<br>};</code></pre>
+                        <p>We couldn’t access the multi-word property with dot-notation:</p>
+                        <pre>user.likes potatoes     // syntax error!</pre>
+                        <p>This is because a dot requires the key to be a valid variable identifier. That is: no spaces and other limitations.</p>
+                        <p>The alternative is to use square brackets, which works with any string:</p>
+                        <pre><code>let user = {};<br><br>// set<br>user["likes potatoes"] = true;<br><br>// get<br>alert(user["likes potatoes"]); // true<br><br>// delete<br>delete user["likes potatoes"];</code></pre>
+                        <h3>Updating object&nbsp;members</h3>
+                        <p>We can update the values within our objects by simply declaring the property you’d like to set with the new value, like so:</p>
+                        <pre>user.age          // 32<br>user.age = 33     // 33<br>user.age          // 33</pre>
+                        <p>You can also create completely new members of your object. For example:</p>
+                        <pre><code>user.surname = 'Smithessson';</code></pre>
+                        <pre><code>// user<br></code>{name: "Sam", age: 33, likes potatoes: true, surname: "Smithessson"}</pre>
+                        <h3>What is&nbsp;“this”?</h3>
+                        <p>You may have noticed the use of the word ‘this’ in our earlier example. See the following:</p>
+                        <pre><code>display: function() {<br>  alert('This car is a ' + <strong>this.</strong>name + '.');<br>}</code></pre>
+                        <p>The <code class="markup--code markup--p-code">this</code> keyword refers to the current object that the code is being written inside of— so in this case <code class="markup--code markup--p-code">this</code> is equivalent to <code class="markup--code markup--p-code">car</code>.</p>
+                        <p>Why not just write <code class="markup--code markup--p-code">car</code> instead? It’s best practice to write well-constructed object-orientated code, and in doing so the use of <code class="markup--code markup--p-code">this</code> is extremely useful. It will ensure the correct values are used when a member's context changes (e.g. two different <code class="markup--code markup--p-code">car</code> object instances may have different names, but will want to use their own name when displaying their own information).</p>
+                        <p>For example:</p>
+                        <pre><code>var car1 = {<br>  name: 'Tesla',<br>  display: function() {<br>    alert('This car is a ' + <strong>this.</strong>name + '.');<br>  }<br>}</code></pre>
+                        <pre><code>var car2 = {<br>  name: 'Toyota',<br>  display: function() {<br>    alert('This car is a ' + <strong>this.</strong>name + '.');<br>  }<br>}</code></pre>
+                        <p>In this case, <code class="markup--code markup--p-code">car1.display()</code> will output "This car is a Tesla." And <code class="markup--code markup--p-code">car2.display()</code> will output "This car is a Toyota.", even though the method's code is exactly the same in both cases.</p>
+                        <p>As <code class="markup--code markup--p-code">this</code> is equal to the object the code is inside —<code class="markup--code markup--p-code">this</code> becomes really useful when you are dynamically generating objects (for example using constructors), which is outside the scope of this article!</p>
+                        <h3>Conclusion</h3>
+                        <p>And that’s it! You should now have a good idea of how to work with objects in JavaScript&#8202;—&#8202;including creating your own simple objects, as well as accessing and manipulating object properties. You‘ll also begin to see how objects are very useful as structures for storing related data and functionality.</p>
+                        <p>For instance, if you tried to keep track of all the properties and methods in our <code class="markup--code markup--p-code">car</code> object as separate variables and functions, it would be extremely inefficient, and we'd run the risk of clashing with other variables and functions that have the same names. Objects let us keep the information safely locked away in their own package.</p>
+                     <!-- <p>Next up this series.. <a href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" data-href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" class="markup--achor markup--p-achor" target="_blank">JavaScript Fundamentals: Data Types</a></p> -->
+                  </div>
+               </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

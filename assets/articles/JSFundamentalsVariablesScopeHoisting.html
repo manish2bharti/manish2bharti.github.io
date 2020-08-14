@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Manish Bharti - Blogs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" />
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="responsiveNav">
+            <svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></path>
+            </svg>
+        </div>
+        <aside>
+            <h1>Blog's</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="index.html" >JavaScript Fundamentals: Syntax & Structure</a>
+                <a href="JSFundamentalsDataTypes.html">JavaScript Fundamentals: Data Types</a>
+                <a href="JSFundamentalsWorkingStrings.html">JavaScript Fundamentals: Working with Strings</a>
+                <a href="JSFundamentalsVariablesScopeHoisting.html" class="active">JavaScript Fundamentals: Variables, Scope & Hoisting</a>
+                <a href="JSFundamentalsMasteringArrays.html">JavaScript Fundamentals: Mastering Arrays</a>
+                <a href="JSFundamentalsMasteringObjects.html">JavaScript Fundamentals: Mastering Objects</a>
+                <a href="howtoAddNPMpackage.html">How to make your json in NPM Package</a>
+
+                <!-- <a href="Testimonials">Testimonials</a>
+                <a href="Contact">Contact</a> -->
+            </nav>
+        </aside>
+
+        <div class="screens">
+
+            <section class="screen article active" data-page="about">
+               <div class="topBar">
+                  <h1>JavaScript Fundamentals: Variables, Scope & Hoisting</h1>
+               </div>
+
+               <section class="section-content">
+                  <p>JavaScript variables are containers for storing data values. Conceptually, they’re one of the most fundamental concepts to learn. You’ve likely heard of the three ways in which variables can be declared: var, let & const. In this article, we’ll be taking a look at how we declare our variables & how we name them. We’ll take a look at how variables behave in our code, with hoisting and scope (local & global).</p>
+                  <blockquote>
+                        This article is part of a series I’m writing on learning the JavaScript fundamentals. Be sure to follow me if you’d like to keep track!
+                     </blockquote>
+               </section>
+
+               <section class="section-content">
+                  <div class="section-inner sectionLayout--insetColumn">
+                        <h3>What are Variables?</h3>
+                        <p>Variables are named containers for storing data values. Any piece of information that we wish to reference multiple times can be stored in a variable for later use. In JavaScript, the value contained inside of a variable can be of any <a href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" data-href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">data type</a>, including a number, string, or object.</p>
+                        <p>Before the release of ES6, there was only one way to declare a variable&#8202;—&#8202;using the <code class="markup--code markup--p-code">var</code> keyword. You’ll still see <code class="markup--code markup--p-code">var</code> used quite often when working with older code. We’ll be looking at the newer conventions later in the article, but for now lets look at an example using <code class="markup--code markup--p-code">var</code>:</p>
+                        <pre>// Assign a string of “John Doe” to the “name” identifier</pre>
+                        <pre>var name = “John Doe”;</pre>
+                        <p>Here we’ve declared our <em >variable</em> using <code class="markup--code markup--p-code">var</code>, our <em >identifier</em> is <code class="markup--code markup--p-code">name</code>, we’ve then <em >assigned</em> the variable using <code class="markup--code markup--p-code">=</code>, to the <em >value</em> of “John Doe”.</p>
+                        <p>Now we can use <code class="markup--code markup--p-code">name</code> in our code. JavaScript will remember that name represents the string value John Doe.</p>
+                        <pre>// Check if variable is equal to a value</pre>
+                        <pre>if (name === “John Doe”) {<br>  console.log(true);<br>}</pre>
+                        <pre>// output: true</pre>
+                        <p>As mentioned previously, variables can be used to represent any JavaScript data type. In this example, we’ll declare variables with string, number, object, Boolean, and null values.</p>
+                        <pre>// Assignment of various variables</pre>
+                        <pre>var name = “John”;<br>var total = 100;<br>var city = [ “sydney”, “tokyo”, “montreal” ];<br>var things = { food: “pizza”, drink: “wine” };<br>var success = true;<br>var nothing = null;</pre>
+                        <p>We can use console.log to see the value contained in a specific variable.</p>
+                        <pre>// Send total variable to the console</pre>
+                        <pre>console.log(total);</pre>
+                        <pre>// output: 100</pre>
+                        <p>Variables store data in memory which can later be accessed and modified. Variables can also be reassigned and given a new value. The following example demonstrates how a password might be stored to a variable and then updated.</p>
+                        <pre>// Assign value to password variable</pre>
+                        <pre>var password = “qwerty1”;</pre>
+                        <pre>// Reassign variable value with a new value</pre>
+                        <pre>password = “qwerty2”;</pre>
+                        <pre>console.log(password);</pre>
+                        <pre>// output: qwerty2</pre>
+                        <p>Of course, a password would likely be securely stored in a database. However, this example illustrates a situation in which we might need to update the value of a variable. The value of password was <em >qwerty1</em>, but we reassigned it to <em >qwerty2</em> which is the value JavaScript recognizes from that point on.</p>
+                        <h3>Naming Variables</h3>
+                        <p>In JavaScript, variable names are known as <em >identifiers</em>. Let’s take a look at some of the rules to follow when naming our variables:</p>
+                        <ul class="postList">
+                           <li>Variable names can consist only of letters (a-z), numbers (0–9), dollar sign symbols ($), and underscores (_)</li>
+                           <li>Variable names cannot contain any whitespace characters (tabs or spaces)</li>
+                           <li>Numbers cannot begin the name of any variable</li>
+                           <li>There are several <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Reserved_keywords_as_of_ECMAScript_2015" data-href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Reserved_keywords_as_of_ECMAScript_2015" class="markup--anchor markup--li-anchor" rel="nofollow noopener" target="_blank">reserved keywords</a> which cannot be used as the name of a variable</li>
+                           <li>Variable names are case sensitive</li>
+                        </ul>
+                        <p>JavaScript also has the convention of using camel case (sometimes stylized as camelCase) in the names of functions and variables declared with var or let. This is the practice of writing the first word lowercase, and then capitalizing the first letter of every subsequent word with no spaces between them. Most variables that are not constants will follow this convention, with some exceptions. The names of variables that are constant, declared with the const keyword, are typically written in all uppercase.</p>
+                        <p>This may seem like a lot of rules to learn, but it will very quickly become second nature to write valid and conventional variable names.</p>
+                        <h4>Difference Between var, let, and&nbsp;const</h4>
+                        <p >JavaScript has three different keywords to declare a variable, which adds an extra layer of intricacy to the language. The differences between the three are based on scope, hoisting, and reassignment.</p>
+                        <figure class="graf graf--figure graf-after--p">
+                           <div class="aspectRatioPlaceholder is-locked" style="max-width: 561px; max-height: 87px;">
+                              <img class="graf-image"src="images/scoping_1.png">
+                           </div>
+                        </figure>
+                        <p>So which method is best? A commonly accepted practice is to use <code class="markup--code markup--p-code">const</code> as much as possible, and <code class="markup--code markup--p-code">let</code> in the case of loops and reassignment. Generally, <code class="markup--code markup--p-code">var</code> can be avoided outside of working on legacy code.</p>
+                        <h3>Variable Scope</h3>
+                        <p><em >Scope</em> in JavaScript refers to the current context of code, which determines the accessibility of variables to JavaScript. The two types of scope are <em >local</em> and <em >global</em>:</p>
+                        <ul class="postList">
+                           <li><strong>Global</strong> variables are those declared outside of a block</li>
+                           <li><strong>Local</strong> variables are those declared inside of a block</li>
+                        </ul>
+                        <p>In the example below, let’s create a global variable.</p>
+                        <pre>// Initialize a global variable</pre>
+                        <pre>var action= “run”;</pre>
+                        <p>We learned that variables can be reassigned. Using local scope, we can actually create new variables with the same name as a variable in an outer scope without changing or reassigning the original value.</p>
+                        <p>In the example below, we will create a global “action” variable. Within the function is a local variable with the same name. By sending them to the console, we can see how the variable’s value is different depending on the scope, and the original value is not changed.</p>
+                        <pre>// Initialize a global variable</pre>
+                        <pre>var action = “walk”;</pre>
+                        <pre>function hurry() {<br>  // Initialize a local, function-scoped variable<br>  var action = “run”;<br>  console.log(action);<br>}</pre>
+                        <pre>// Log the global and local variable</pre>
+                        <pre>console.log(action);<br>hurry();<br>console.log(action);</pre>
+                        <pre>// output:</pre>
+                        <pre>walk<br>run<br>walk</pre>
+                        <p>In this example, the local variable is <em >function-scoped</em>. Variables declared with the <code class="markup--code markup--p-code">var</code> keyword are always function-scoped, meaning they recognize functions as having a separate scope. This locally-scoped variable is therefore not accessible from the global scope.</p>
+                        <p>The new keywords <code class="markup--code markup--p-code">let</code> and <code class="markup--code markup--p-code">const</code>, however, are <em >block-scoped</em>. This means that a new, local scope is created from any kind of block, including function blocks, if statements, and for and while loops.</p>
+                        <p>To illustrate the difference between function- and block-scoped variables, we will assign a new variable in an if block using let.</p>
+                        <pre>var race = true;</pre>
+                        <pre>// Initialize a global variable</pre>
+                        <pre>let action = “walk”;</pre>
+                        <pre>if (race) {<br>  // Initialize a block-scoped variable<br>  let action = “run”;<br>  console.log(`It's a race! Let's ${action}.`);<br>}</pre>
+                        <pre>console.log(`It's not a race. Let's ${action}.`);</pre>
+                        <pre>// output:</pre>
+                        <pre>It's a race! Let's run.<br>It's not a race. Let's walk.</pre>
+                        <p>In this example, the action variable has one value globally (walk), and another value locally (run). If we were to use <code class="markup--code markup--p-code">var</code>, however, there would be a different result.</p>
+                        <pre>// Use var to initialize a variable</pre>
+                        <pre>var action = “walk”;</pre>
+                        <pre>if (race) {<br>  // Attempt to create a new variable in a block<br>  var action = “run”;<br>  console.log(`It's a race! Let's ${action}.`);<br>}</pre>
+                        <pre>console.log(`It's not a race. Let's ${action}.`);</pre>
+                        <pre>// output:</pre>
+                        <pre>It's a race! Let's run.<br>It's not a race. <strong>Let's run.</strong></pre>
+                        <p>In the result of this example, both the global variable and the block-scoped variable end up with the same value, <strong class="markup--strong markup--p-strong">run</strong>. This is because instead of creating a new local variable with <code class="markup--code markup--p-code">var</code>, you are reassigning the same variable in the same scope. <code class="markup--code markup--p-code">var</code> does not recognize <code class="markup--code markup--p-code">if</code> to be part of a different, new scope. It is generally recommended that you declare variables that are block-scoped, as they produce code that is less likely to unintentionally override variable values.</p>
+                        <h3>Hoisting</h3>
+                        <p>In most of the examples so far, we’ve used <code class="markup--code markup--p-code">var</code> to <em >declare</em> a variable, and we have <em >initialized</em> it with a value. After declaring and initializing, we can access or reassign the variable.</p>
+                        <p>If we attempt to use a variable before it has been declared and initialized, it will return undefined.</p>
+                        <pre>// Attempt to use a variable before declaring it</pre>
+                        <pre>console.log(x);</pre>
+                        <pre>// Variable assignment</pre>
+                        <pre>var x = 100;</pre>
+                        <pre>// output:</pre>
+                        <pre>undefined</pre>
+                        <p>However, if we omit the <code class="markup--code markup--p-code">var</code> keyword, we are no longer declaring the variable, only initializing it. It will return a <em >ReferenceError </em>and halt the execution of the script.</p>
+                        <pre>// Attempt to use a variable before declaring it</pre>
+                        <pre>console.log(x);</pre>
+                        <pre>// Variable assignment without var</pre>
+                        <pre>x = 100;</pre>
+                        <pre>// output:</pre>
+                        <pre>ReferenceError: x is not defined</pre>
+                        <p>The reason for this is due to <em >hoisting</em>, a behavior of JavaScript in which variable and function declarations are moved to the top of their scope. Since only the actual declaration is hoisted, not the initialization, the value in the first example returns undefined.</p>
+                        <p>To demonstrate this concept more clearly, below is the code we wrote and how JavaScript actually interpreted it.</p>
+                        <pre>// The code we wrote</pre>
+                        <pre>console.log(x);</pre>
+                        <pre>var x = 100;</pre>
+                        <pre>// How JavaScript interpreted it</pre>
+                        <pre>var x;</pre>
+                        <pre>console.log(x);</pre>
+                        <pre>x = 100;</pre>
+                        <p>JavaScript saved <code class="markup--code markup--p-code">x</code> to memory as a variable before the execution of the script. Since it was still called before it was defined, the result is <code class="markup--code markup--p-code">undefined</code> and not “100". However, it does not cause a ReferenceError and halt the script.</p>
+                        <p>Although the <code class="markup--code markup--p-code">var</code> keyword did not actually change location of the <code class="markup--code markup--p-code">var</code>, this is a helpful representation of how hoisting works. This behavior can cause issues, though, because the programmer who wrote this code likely expects the output of <code class="markup--code markup--p-code">x</code> to be true, when it is instead undefined.</p>
+                        <p>We can also see how hoisting can lead to unpredictable results in the next example:</p>
+                        <pre>// Initialize x in the global scope</pre>
+                        <pre>var x = 100;</pre>
+                        <pre>function hoist() {<br>  // A condition that should not affect the outcome of the code<br>  if (false) {<br>    var x = 200;<br>  }<br>console.log(x);<br>}</pre>
+                        <pre>hoist();</pre>
+                        <pre>// output:</pre>
+                        <pre>undefined</pre>
+                        <p>In this example, we declared <code class="markup--code markup--p-code">x</code> to be 100 globally. Depending on an if statement, <code class="markup--code markup--p-code">x</code> could change to 200, but since the condition was false it should not have affected the value of <code class="markup--code markup--p-code">x</code>. Instead, <code class="markup--code markup--p-code">x</code> was hoisted to the top of the <code class="markup--code markup--p-code">hoist()</code> function, and the value became undefined.</p>
+                        <p>This type of unpredictable behavior can potentially cause bugs in a program. Since <code class="markup--code markup--p-code">let</code> and <code class="markup--code markup--p-code">const</code> are block-scoped, they will not hoist in this manner, as seen below.</p>
+                        <pre>// Initialize x in the global scope</pre>
+                        <pre>let x = true;</pre>
+                        <pre>function hoist() {<br>  // Initialize x in the function scope<br>  if (3 === 4) {<br>    let x = false;<br>  }<br>console.log(x);<br>}</pre>
+                        <pre>hoist();</pre>
+                        <pre>// output:</pre>
+                        <pre>true</pre>
+                        <p>Duplicate declaration of variables, which is possible with <code class="markup--code markup--p-code">var</code>, will throw an error with <code class="markup--code markup--p-code">let</code> and <code class="markup--code markup--p-code">const</code>.</p>
+                        <pre>// Attempt to overwrite a variable declared with var</pre>
+                        <pre>var x = 1;<br>var x = 2;<br>console.log(x);</pre>
+                        <pre>// output:</pre>
+                        <pre>2</pre>
+                        <pre>// Attempt to overwrite a variable declared with let</pre>
+                        <pre>let y = 1;<br>let y = 2;<br>console.log(y);</pre>
+                        <pre>// output:</pre>
+                        <pre>Uncaught SyntaxError: Identifier ‘y’ has already been declared</pre>
+                        <p>To summarize, variables introduced with <code class="markup--code markup--p-code">var</code> have the potential of being affected by hoisting, a mechanism in JavaScript in which variable declarations are saved to memory. This may result in undefined variables in one’s code. The introduction of <code class="markup--code markup--p-code">let</code> and <code class="markup--code markup--p-code">const</code> resolves this issue by throwing an error when attempting to use a variable before declaring it or attempting to declare a variable more than once.</p>
+                        <h3>Constants</h3>
+                        <p>Many programming languages feature <em >constants</em>, which are values that cannot be modified or changed. In JavaScript, the <code class="markup--code markup--p-code">const</code> identifier is modeled after constants, and the values assigned to a <code class="markup--code markup--p-code">const</code> cannot be reassigned.</p>
+                        <p>It is common convention to write all <code class="markup--code markup--p-code">const</code> identifiers in uppercase. This marks them as readily distinguishable from other variable values.</p>
+                        <p>In the example below, we initialize the variable ACTION as a constant with the <code class="markup--code markup--p-code">const</code> keyword. Trying to reassign the variable will result in an error.</p>
+                        <pre>// Assign value to const</pre>
+                        <pre>const ACTION = “walk”;</pre>
+                        <pre>// Attempt to reassign value</pre>
+                        <pre>ACTION = “run”;</pre>
+                        <pre>console.log(ACTION);</pre>
+                        <pre>// cutput:</pre>
+                        <pre>Uncaught TypeError: Assignment to constant variable.</pre>
+                        <p>Since <code class="markup--code markup--p-code">const</code> values cannot be reassigned, they need to be declared and initialized at the same time, or will also throw an error.</p>
+                        <pre>// Declare but do not initialize a const</pre>
+                        <pre>const RACING;</pre>
+                        <pre>console.log(RACING);</pre>
+                        <pre>// output:</pre>
+                        <pre>Uncaught SyntaxError: Missing initializer in const declaration</pre>
+                        <p>Values that cannot change in programming are known as <em >immutable</em>, while values that can be changed are <em >mutable</em>. Although <code class="markup--code markup--p-code">const</code> values cannot be reassigned, they are mutable as it is possible to modify the properties of objects declared with <code class="markup--code markup--p-code">const</code>.</p>
+                        <pre>// Create a PERSON object with two properties</pre>
+                        <pre>const PERSON = {<br>  name: “Joanna”,<br>  balance: 10000<br>}</pre>
+                        <pre>// Modify a property of PERSON</pre>
+                        <pre>PERSON.balance = 15000;<br>console.log(PERSON);</pre>
+                        <pre>// output:</pre>
+                        <pre>{ name: ‘Joanna’, price: 15000 }</pre>
+                        <p>Constants are useful for making it clear to your future self and other programmers working on a project with you that the intended variable should not be reassigned. If you expect that a variable may be modified in the future, you will likely want to use <code class="markup--code markup--p-code">let</code> to declare the variable instead.</p>
+                        <h3>Conclusion</h3>
+                        <p>And that’s it! We’ve taken a look at what a variable is, the rules of naming a variable, and how to reassign variable values. We also learned about scope and hoisting, some of the limitations of the original <code class="markup--code markup--p-code">var</code> keyword, as well as how <code class="markup--code markup--p-code">let</code> and <code class="markup--code markup--p-code">const</code> resolve those issues.</p>
+                     <!-- <p>Next up this series.. <a href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" data-href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" class="markup--anchor markup--p-anchor" target="_blank">JavaScript Fundamentals: Data Types</a></p> -->
+                  </div>
+               </section>
+            </section>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

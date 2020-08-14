@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Manish Bharti - Blogs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" />
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="responsiveNav">
+            <svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></path>
+            </svg>
+        </div>
+        <aside>
+            <h1>Blog's</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="index.html" >JavaScript Fundamentals: Syntax & Structure</a>
+                <a href="JSFundamentalsDataTypes.html">JavaScript Fundamentals: Data Types</a>
+                <a href="JSFundamentalsWorkingStrings.html" class="active">JavaScript Fundamentals: Working with Strings</a>
+                <a href="JSFundamentalsVariablesScopeHoisting.html">JavaScript Fundamentals: Variables, Scope & Hoisting</a>
+                <a href="JSFundamentalsMasteringArrays.html">JavaScript Fundamentals: Mastering Arrays</a>
+                <a href="JSFundamentalsMasteringObjects.html">JavaScript Fundamentals: Mastering Objects</a>
+                <a href="howtoAddNPMpackage.html">How to make your json in NPM Package</a>
+
+                <!-- <a href="Testimonials">Testimonials</a>
+                <a href="Contact">Contact</a> -->
+            </nav>
+        </aside>
+
+        <div class="screens">
+
+            <section class="screen article active" data-page="about">
+               <div class="topBar">
+                  <h1>JavaScript Fundamentals: Working with Strings</h1>
+               </div>
+
+               <section class="section-content">
+                  <p>JavaScript strings are used for storing and manipulating text — they can consist of a sequence of letters, numbers and/or symbols. In this article, we’re going to first take a look at how we create strings, concatenate strings and we’ll see some fundamental syntax rules that apply to strings.</p>
+                  <p>We'll then be moving on to string manipulation, with many of the common methods such as: <code class="markup--code markup--p-code">charAt()</code>, <code class="markup--code markup--p-code">indexOf()</code>, <code class="markup--code markup--p-code">slice()</code>, <code class="markup--code markup--p-code">length</code>, <code class="markup--code markup--p-code">toUpperCase()</code>, <code class="markup--code markup--p-code">toLowerCase()</code>, <code class="markup--code markup--p-code">split()</code>, <code class="markup--code markup--p-code">trim()</code>, <code class="markup--code markup--p-code">replace()</code>, <code class="markup--code markup--p-code">parseInt()</code>, <code class="markup--code markup--p-code">parseFloat()</code> and <code class="markup--code markup--p-code">Number()</code>.</p>
+                  <blockquote>
+                        This article is part of a series I’m writing on learning the JavaScript fundamentals. Be sure to follow me if you’d like to keep track!
+                     </blockquote>
+               </section>
+
+               <section class="section-content">
+                  <div class="section-inner sectionLayout--insetColumn">
+                    <h3>Creating Strings</h3>
+                    <p>There are three ways to write a string&#8202;—&#8202;with single quotes <code class="markup--code markup--p-code">‘ ’</code>, double quotes <code class="markup--code markup--p-code">“ ”</code> or back-ticks <code class="markup--code markup--p-code">` `</code>. Let’s assign some strings to a <code class="markup--code markup--p-code">myString</code> variable with each technique:</p>
+                    <pre>let myString = <strong >'</strong>I am a string!<strong >'</strong>;<br>let myString = <strong >"</strong>I am a string!<strong >"</strong>;<br>let myString = <strong >`</strong>I am a string!<strong >`</strong>;</pre>
+                    <p >There is no syntactic difference between single or double quotes, you’re free to go with your preference&#8202;—&#8202;however it’s a good idea to stay consistent within your projects! However, back-ticks (known as <em>template literals</em>), have a few super powers which we’ll be taking a look at later in the article.</p>
+                    <p>And of course the reason we assign strings to variables, is so they’re much easier to work with &amp; manipulate within our programs!</p>
+                    <h3>Concatenation</h3>
+                    <p>We use <em>string concatenation</em> to combine two or more strings together to form a new string. We combine our strings using the <code class="markup--code markup--p-code">+</code> operator.</p>
+                    <pre><code>const firstName = 'Barry';<br>const secondName = 'Dingus';</code></pre>
+                    <pre><code>const concat = firstName + secondName;</code></pre>
+                    <pre><code>console.log(concat);    </code></pre>
+                    <pre>// output: BarryDingus</pre>
+                    <p >Here we’ve combined two strings stored in separate variables into a new <code class="markup--code markup--p-code">concat</code> variable. However, you’ll notice we have <strong >no space</strong> between the names in our new variable as concatenation joins strings end to end. To add the space, use a pair of quotes <code class="markup--code markup--p-code">‘ ’</code> like so:</p>
+                    <pre><code >const concat = firstName + <strong >' '</strong> + secondName;</code></pre>
+                    <pre><code>console.log(concat);</code></pre>
+                    <pre>// output: Barry Dingus</pre>
+                    <p >Now we have our desired output!</p>
+                    <h4 >Concatenation with Template&nbsp;Literals</h4>
+                    <p >When we use template literals <code class="markup--code markup--p-code">` `</code>, we no longer need to use the <code class="markup--code markup--p-code">+</code> operator to concatenate. We include expressions and variables within our strings using the <code class="markup--code markup--p-code">${}</code> syntax&nbsp;. For example,</p>
+                    <pre><code>const fullName = 'Barry Dingus';<br>const location = 'Mullet Creek';</code></pre>
+                    <pre><code>const concat2 = `Welcome ${fullName}! We think ${location} is alright!`;</code></pre>
+                    <pre><code>console.log(concat2);</code></pre>
+                    <pre>// output: Welcome Barry Dingus! We think Mullet Creek is alright!</pre>
+                    <p >Template literals are much easier read &amp; write.</p>
+                    <h3>Syntax Rules</h3>
+                    <h4 >Using Quotes and Apostrophes</h4>
+                    <p >Knowing that quotes <code class="markup--code markup--p-code">“</code> and apostrophes <code class="markup--code markup--p-code">‘</code> are interpreted by JavaScript to mark where a string begins &amp; ends. How can we include them <em>within</em> a string? For example:</p>
+                    <pre>const greeting = 'G'day Barry!';</pre>
+                    <pre>console.log(greeting);</pre>
+                    <pre>// Uncaught Syntax Error: Unexpected identifier</pre>
+                    <p >The additional apostrophe in <code >’G<strong >’</strong>day Barry!'</code> is the problem. JavaScript thinks <code class="markup--code markup--p-code">‘G’</code> is the string and attempts to parse the rest as code, thus generating the error.</p>
+                    <p>Using quotes within a string would cause the same error:</p>
+                    <pre>const quote = 'Barry said 'I lost my keys'';</pre>
+                    <pre>console.log(quote);</pre>
+                    <pre>// Uncaught Syntax Error: Unexpected identifier</pre>
+                    <p >There are a number of ways we can avoid these errors…</p>
+                    <p><strong >Alternate your syntax</strong></p>
+                    <p>Use the opposite quote style to enclose any quotes or apostrophes within your strings, such as:</p>
+                    <pre>'G'day Barry!'     // error<br>"G'day Barry!"     // correct</pre>
+                    <pre>'Barry said 'I lost my keys''   // error<br>'Barry said "I lost my keys"'   // correct<br>"Barry said 'I lost my keys'"   // correct</pre>
+                    <p >Whilst this technique works just fine. It’s preferable to be more consistent within our code.</p>
+                    <p><strong >Use the Escape Character </strong><code class="markup--code markup--p-code"><strong >\</strong></code></p>
+                    <p>By using a backslash we can prevent JavaScript from interpreting a quote as the end of the string. The \ should go before any single or double quote:</p>
+                    <pre>'G\'day Barry!'   // correct</pre>
+                    <pre>'Barry said \'I lost my keys\''   // also correct!</pre>
+                    <p ><strong >Use Template Literals</strong></p>
+                    <p>If we enclose our string in template literals <code class="markup--code markup--p-code">``</code>, our string will be valid and it’ll look much cleaner too:</p>
+                    <pre><code>`Barry said "I lost my keys" and "I'm now concerned"!`; </code></pre>
+                    <pre><code>// correct</code></pre>
+                    <h4 >Longer Strings</h4>
+                    <p >We use either the newline character <code class="markup--code markup--p-code">\n</code> or carriage return <code class="markup--code markup--p-code">\r</code>, to break longer strings up over multiple lines:</p>
+                    <pre>const multipleLines = "This string is long\nso lets display it\nacross multiple lines.";</pre>
+                    <pre>// output:</pre>
+                    <pre>"This string is long<br>so lets display it<br>across multiple lines."</pre>
+                    <p >This works fine but it’s quite messy. We could tidy it up by using some concatenation:</p>
+                    <pre><code>const multipleLines = "This string is long\n" +<br>"so lets display it\n" +<br>"across multiple lines.";</code></pre>
+                    <p >Or go for a gold star with template literals:</p>
+                    <pre><code>const multipleLines = `This string is long<br>so lets display it<br>across multiple lines.`;</code></pre>
+                    <p >Back-ticks to the rescue! No escapes or concatenation required, the newlines are preserved and it looks much neater.</p>
+                    <h3>Working with&nbsp;Strings</h3>
+                    <p>In this next section, we’ll look at some of the ways we can work with strings.</p>
+                    <p>Each character in a string is numbered, starting at <code class="markup--code markup--p-code">0</code>. For example:</p>
+                    <pre>"This is my string!"            </pre>
+                    <p >The first character is <code class="markup--code markup--p-code">T</code> at index position <code class="markup--code markup--p-code">0</code>.</p>
+                    <p>The last character is&nbsp;<code class="markup--code markup--p-code">!</code> at index position <code class="markup--code markup--p-code">17</code>.</p>
+                    <p>The spaces also have index positions at <code class="markup--code markup--p-code">4</code>, <code class="markup--code markup--p-code">7</code> and <code class="markup--code markup--p-code">10</code>.</p>
+                    <p>We can access any character like so:</p>
+                    <pre>"This is my string!<code>[8]</code>"     // m</pre>
+                    <h4 >charAt()</h4>
+                    <p >We can similarly use the <code class="markup--code markup--p-code">charAt()</code> method. It returns the character at the specified index in a string, such as:</p>
+                    <pre>"This is my string!.charAt(8)"     // m</pre>
+                    <h4 >indexOf()</h4>
+                    <p >We can use <code class="markup--code markup--p-code">indexOf()</code> if we wish to return an index number.</p>
+                    <p>It returns the index of where the substring starts in the string, or <code class="markup--code markup--p-code">-1</code> if the substring isn’t found. It’s case-sensitive.</p>
+                    <pre><code>const str = "This is my string!";</code></pre>
+                    <pre><code>str.indexOf('s');       // returns 3 (the first 's' instance)</code></pre>
+                    <pre><code>str.indexOf('my');      // returns 8</code></pre>
+                    <pre><code>str.indexOf('My');      // returns -1</code></pre>
+                    <pre>str.<code>lastIndexOf('s');   // returns 11 (the last instance)</code></pre>
+                    <p >You can use a conditional to test if a substring exists:</p>
+                    <pre><code>if (str.indexOf('my') &gt; -1) {<br>	console.log('Success! It contains the string');<br>}</code></pre>
+                    <p >This works as we know that <code class="markup--code markup--p-code">-1</code> results when nothing is found, so logically any result greater than <code class="markup--code markup--p-code">-1</code> would mean the substring exists.</p>
+                    <h4 >slice()</h4>
+                    <p >To get a portion of a string starting (and <em>optionally</em> ending) at a particular character, we can use <code class="markup--code markup--p-code">slice()</code>.</p>
+                    <p>This method can take 2 arguments. The first is the start position (<code class="markup--code markup--p-code">0</code> is of course the first character), and the second <em>optional</em> argument is the end position. If either argument is a negative number, it will start at the end of the string and work backwards.</p>
+                    <pre><code>const str = "This is my string!";</code></pre>
+                    <pre>str.slice(5);         // "is my string!"<br>str.slice(5, 10);     // "is my"<br>str.slice(0, -8);     // "This is my"</pre>
+                    <h4 >Finding the Length of a&nbsp;String</h4>
+                    <p >To find the length of a string we can use the <code class="markup--code markup--p-code">length</code> property. It returns the number of characters in a string.</p>
+                    <pre><code>"This is my string!".length;     //18</code></pre>
+                    <p >The <code class="markup--code markup--p-code">length</code> property is returns the actual number of characters starting with <code class="markup--code markup--p-code">1</code>, which in our example is <code class="markup--code markup--p-code">18</code>, not the final index number, which starts at <code class="markup--code markup--p-code">0</code> and ends at <code class="markup--code markup--p-code">17</code>.</p>
+                    <h4 >Converting to Upper or Lower&nbsp;Case</h4>
+                    <p >The two methods <code class="markup--code markup--p-code">toUpperCase()</code> and <code class="markup--code markup--p-code">toLowerCase()</code> are useful ways to format our text.</p>
+                    <p><code class="markup--code markup--p-code">toUpperCase()</code><em> </em>converts all text in a string to uppercase.</p>
+                    <pre><code>const str = "This is my string!";<br>const upper = str.toUpperCase();<br>console.log(upper);</code></pre>
+                    <pre><code>// </code>"THIS IS MY STRING!"</pre>
+                    <p ><code class="markup--code markup--p-code">toLowerCase()</code><strong > </strong>converts all text in a string to lowercase.</p>
+                    <pre><code>const str = "This is my string!";<br>const lower = str.toLowerCase();<br>console.log(lower);</code></pre>
+                    <pre><code>// </code>"this is my string!"</pre>
+                    <h4 >split()</h4>
+                    <p >To divide a string up into sections &amp; insert the contents into an array, we can use the <code class="markup--code markup--p-code">split()</code> method.</p>
+                    <p>The argument we provide is the <code class="markup--code markup--p-code">delimiter</code>, the character that we’re using to split up our string.</p>
+                    <>In the below example, lets use the whitespace <code class="markup--code markup--p-code">“ “</code> character as our delimiter:</p>
+                    <pr><code>const str = "This is my string!";<br>const splitString = str.split(" ");</code></pre>
+                    <pr><code>console.log(splitString);</code></pre>
+                    <pr>// ["This", "is", "my", "string!"]</pre>
+                    <p>We can now access each section via its array position..</p>
+                    <pr>splitSting[0];    // This<br>splitSting[1];    // is<br>splitSting[2];    // my<br>splitSting[3];    // string!</pre>
+                    < >We can also optionally provide a second argument to stop splitting a string, after a certain number of delimiter matches have been found.</p>
+                    <>Lets look at another example, this time using a comma <code class="markup--code markup--p-code">‘, ‘</code> as our delimiter.</p>
+                    <pr><code>const shoppingList = 'Bananas, green apples, chocolate, cat food';<br>const foodItems = shoppingList.split(', ');<br></code>console.log(foodItems);</pre>
+                    <pr>// ["Bananas", "green apples", "chocolate", "cat food"]<br><br></pre>
+                    <pre><code>const snacks = shoppingList.split(', ', 2);<br>console.log(snacks)</code></pre>
+                    <pre><code>// </code>["Bananas", "green apples"]</pre>
+                    <p >Our&nbsp;<code >.split(', '<strong >, 2</strong>)</code> stopped the split after the second comma, returning just the first two array entries.</p>
+                    <h4 >trim()</h4>
+                    <p >The <code class="markup--code markup--p-code">trim()</code> method removes any white space from both ends of a string, but importantly not anywhere in between.</p>
+                    <pre><code>const ahhhhWhitespace = "     This is my string!     ";</code></pre>
+                    <pre><code>const trimmed = ahhhhWhitespace.trim();</code></pre>
+                    <pre><code>console.log(trimmed);</code></pre>
+                    <pre>// "<code>This is my string!"</code></pre>
+                    <p >Whitespace can be tabs or spaces, the <code class="markup--code markup--p-code">trim()</code> method conveniently removes any excess.</p>
+                    <h4 >replace()</h4>
+                    <p >If we wish to search through a string for a value, and replace it with a new value, we use <code class="markup--code markup--p-code">replace()</code>.</p>
+                    <p>The first parameter will be the value to find, and the second will be the replacement value.</p>
+                    <pre><code>const str = "This is my string!";</code></pre>
+                    <pre><code>const newString = str.replace("my", "your");</code></pre>
+                    <pre><code>console.log(newString);</code></pre>
+                    <pre><code>// This is your string!</code></pre>
+                    <p >By default, the <code class="markup--code markup--p-code">replace()</code> method replaces the first match only. To replace <strong >all matches</strong>, you’ll need to pass in a regular expression using the global flag <code class="markup--code markup--p-code">g</code>. If we also want to ignore case, we’d add the case insensitive flag <code class="markup--code markup--p-code">i</code>.</p>
+                    <pre><code>const str = "GOOGLE is my homepage. But I don't use google Chrome."</code></pre>
+                    <pre><code>const newString = str.replace(/google/gi, "Google");</code></pre>
+                    <pre><code>console.log(newString);</code></pre>
+                    <pre><code>// </code>Google is my homepage. But I don't use Google Chrome.</pre>
+                    <p >Here we’re telling <strong >every</strong> instance of google within our string (regardless of case), to be replaced by “Google”.</p>
+                    <h3>Converting Strings into&nbsp;Numbers</h3>
+                    <p>In this final section, lets take a quick look at some of the ways we can convert strings into numbers.</p>
+                    <h4 >parseInt()</h4>
+                    <p >To convert a string into an integer (a whole number) we can use <code class="markup--code markup--p-code">parseInt()</code>. It takes two arguments, the first being the value we want to convert, and the second is called the <em>radix. </em>This is the base number used in mathematical systems. For our use, it should always be <code class="markup--code markup--p-code">10</code>, the decimal system.</p>
+                    <pre><code>parseInt('64', 10);     // 64</code></pre>
+                    <pre><code>parseInt('64.9', 10);   // 64</code></pre>
+                    <pre><code>parseInt('64px', 10);   // 64</code></pre>
+                    <h4 ><code class="markup--code markup--h4-code">parseFloat()</code></h4>
+                    <p >If we wish to convert into a floating point number (a number with decimal points), we’d use <code class="markup--code markup--p-code">parseFloat()</code>.</p>
+                    <pre><code>parseFloat('64.9');             // 64.9</code></pre>
+                    <pre><code>parseFloat('64bit');            // 64</code></pre>
+                    <pre><code>console.log(parseFloat('64'));  // 64</code></pre>
+                    <h4 ><code class="markup--code markup--h4-code">Number()</code></h4>
+                    <p >We can convert our strings with the <code class="markup--code markup--p-code">Number()</code> method as well, however its stricter about which values it can convert. It only works with strings that consist of numbers.</p>
+                    <pre><code>Number('64');      // 64</code></pre>
+                    <pre><code>Number('64.9');    // 64.9</code></pre>
+                    <pre><code>Number('64bit');   // NaN</code></pre>
+                    <pre><code>Number('64%');     // NaN</code></pre>
+                    <p ><code class="markup--code markup--p-code">NaN</code> if you recall&#8202;—&#8202;stands for Not a number.</p>
+                    <h3>Conclusion</h3>
+                    <p>And that’s it! We’ve covered the basics of creating strings, string concatenation and syntax rules. We then moved on to manipulating our strings with many of the common methods, such as formatting, finding, replacing and converting values.</p>
+                     <!-- <p>Next up this series.. <a href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" data-href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" class="markup--anchor markup--p-anchor" target="_blank">JavaScript Fundamentals: Data Types</a></p> -->
+                  </div>
+               </section>
+            </section>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

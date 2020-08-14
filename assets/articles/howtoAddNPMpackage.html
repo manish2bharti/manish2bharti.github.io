@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Manish Bharti - Blogs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" />
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="responsiveNav">
+            <svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></path>
+            </svg>
+        </div>
+        <aside>
+            <h1>Blog's</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="index.html">JavaScript Fundamentals: Syntax & Structure</a>
+                <a href="JSFundamentalsDataTypes.html">JavaScript Fundamentals: Data Types</a>
+                <a href="JSFundamentalsWorkingStrings.html">JavaScript Fundamentals: Working with Strings</a>
+                <a href="JSFundamentalsVariablesScopeHoisting.html">JavaScript Fundamentals: Variables, Scope & Hoisting</a>
+                <a href="JSFundamentalsMasteringArrays.html">JavaScript Fundamentals: Mastering Arrays</a>
+                <a href="JSFundamentalsMasteringObjects.html">JavaScript Fundamentals: Mastering Objects</a>
+                <a href="howtoAddNPMpackage.html" class="active">How to make your json in NPM Package</a>
+
+                <!-- <a href="Testimonials">Testimonials</a>
+                <a href="Contact">Contact</a> -->
+            </nav>
+        </aside>
+
+        <div class="screens">
+
+            <section class="screen article active" data-page="about">
+               <div class="topBar">
+                  <h1>How to make your json in NPM Package</h1>
+               </div>
+
+               <section class="section-content">
+                  <div class="section-inner sectionLayout--insetColumn">
+                        <h3>What is this tutorial&nbsp;about?</h3>
+                        <p >So in this article, you are going to learn:-</p>
+                        <ol class="postList">
+                           <li>How to make nodejs cli (command line interface) apps.</li>
+                           <li>How to publish your <strong><em>own NPM package.</em></strong></li>
+                        </ol>
+                        <h4>Pre-Requisites</h4>
+                        <p >Just a little bit of <strong>Nodejs</strong>. I’ve tried to make it as beginner friendly yet fast-paced (for amateurs who skip to code). One more very important pre-requisite would be your information as we will be creating a resume app on the command line.</p>
+                        
+                        <h3>So Let’s Get&nbsp;Started</h3>
+                        <p >This Tutorial is going to consist of 2 parts.</p>
+                        <ol class="postList">
+                           <li>Making the cli app</li>
+                           <li>Publishing it as an NPM package.</li>
+                        </ol>
+                        <h4>Making the cli app&nbsp;(Part-1)</h4>
+                        <p >We are going to create a simple menu in cli from which the user can choose what do they want to know about us. So the list will consist of options like Past Experience, Education Qualification.</p>
+                        <figure>
+                            <img src="images/inquirer.png">
+                        </figure>
+                        <p>For this, we will use the <a href="https://www.npmjs.com/package/inquirer" target="_blank"><strong><em>Inquirer.js</em></strong></a> package. It has a simple prompt-then routine which is very intuitive.</p>
+                        <p>We will also use <a href="https://www.npmjs.com/package/chalk" target="_blank"><strong><em>Chalk.js</em></strong></a> as I’m very obsessed with coloured console.logs</p>
+                        <p>A code this short would create a question prompt in cli.</p>
+                        <p>The <code class="markup--code markup--p-code">prompt</code> object consists of keys such as type, name etc.</p>
+                        <p>For now, we need to know only 2 those will be the message(the question to be asked) and choices( the options we provide).</p>
+                        <h4>Structured Approach</h4>
+                        <p >Instead of filling the options array with each option I used a JSON to store all my resume information which can be parsed and supplied by the app.</p>
+                        <h3>STEP 1:-</h3>
+                        <figure>
+                                <img src="images/json.PNG">
+                        </figure>
+                        <p>The JSON&nbsp;file</p>
+                        <p>Write this code in a separate <strong><em>resume.json</em></strong> file and save it with your own qualifications. Please don’t use the one in this pic.</p>
+                        <p>After that, we will just use the inquirer to make the question-answer format.</p>
+                        <h3>STEP 2:-</h3>
+                        <p >Name your package and install its dependencies.</p>
+                        <pre>npm init</pre>
+                        <p><strong><em>Now here be careful while giving the name field as this will be the name of your package when you upload it to the npm site. MAKE SURE IT’S UNIQUE</em></strong></p>
+                        <p>Now install your package dependencies i.e chalk and inquirer.</p>
+                        <pre>npm i --save chalk inquirer</pre>
+                        <h4>CLI APP</h4>
+                        <p >So we will give them 4 options and an option to exit and go back at the 2nd stage. Go back will just call the parent function again. Nothing so fancy. Here’s the complete app code.</p>
+                        <h3>STEP 3:-</h3>
+                        <p >Save this code in <strong><em>index.js.</em></strong></p>
+                        <pre>#!/usr/bin/env node
+"use strict";
+
+var inquirer = require("inquirer");
+var chalk = require("chalk");
+
+var response = chalk.bold.green;
+
+var resume = require("./resume.json");
+
+var resumePrompts = {
+    type: "list",
+    name: "resumeOptions",
+    message: "What do you want to know about me?",
+    choices: [...Object.keys(resume), "Exit"]
+};
+
+function main() {
+    console.log("Hello,My name is Manish and welcome to my resume");
+    resumeHandler();
+}
+
+function resumeHandler() {
+    inquirer.prompt(resumePrompts).then(answer => {
+    if (answer.resumeOptions == "Exit") {
+        return;
+    }
+    var option = answer.resumeOptions;
+    console.log(response("--------------------------------------"));
+    resume[`${option}`].forEach(info => {
+        console.log(response("|   => " + info));
+    });
+    console.log(response("--------------------------------------"));
+    // console.log(resume[`${option}`]);
+    inquirer
+        .prompt({
+        type: "list",
+        name: "exitBack",
+        message: "Go back or Exit?",
+        choices: ["Back", "Exit"]
+        })
+        .then(choice => {
+        if (choice.exitBack == "Back") {
+            resumeHandler();
+        } else {
+            return;
+        }
+        });
+    });
+}
+
+main();</pre>
+                        <h4>Key Points:-</h4>
+                        <ol class="postList">
+                           <li>#!/usr/bin/env node -This line is important as our package is going to run from cli and we need to know the environment in the script.</li>
+                           <li>response() function just shows my OCD with chalk module.</li>
+                        </ol>
+                        <h3>STEP 4:-</h3>
+                        <p >Test if your code works.</p>
+                        <pre>node index.js</pre>
+                        <p>If your code doesn’t work for some reasons <strong><em>check with the repo link given above</em></strong>. If it does then, HURRAYYYY!!! You just made a cli app for your resume. You should clap for yourself.</p>
+                        <h3>THE NPM PACKAGE&nbsp;(PART-2)</h3>
+                        <p >Now that we have our cli app running lets’ deploy it as an NPM package.</p>
+                        <h4>Step 1-</h4>
+                        <p >Register yourself on <a href="http://npmjs.com" data-href="http://npmjs.com" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">npmjs.com</a>. To be able to publish NPM packages you have to make an account on npmjs. Easy Step. Make the account and come back here.</p>
+                        <h4>Step 2-</h4>
+                        <p >Add a user to you npm cli tool. Now you have to link the npm cli to your npmjs account. In your terminal type</p>
+                        <pre>npm adduser</pre>
+                        <img src="images/npmadduse.PNG">
+                        <p>After that fill the prompts as requested, Example:-</p>
+                        <figure  data-scroll="native">
+                        </figure>
+                        <p>Username- it is you npm username.</p>
+                        <p>Password- It is your npmjs account password.</p>
+                        <h4>STEP 3-</h4>
+                        <p >Making your project ready for publishing. Now add these following lines to the package.json file of your cli app. This step will make your app to be accessible directly from the command line.</p>
+                        <p>&lt;your package name&gt; can be seen in the package.json under the <strong><em>“name”</em></strong> key</p>
+                        <pre>"bin": {</pre>
+                        <pre>"&lt;your package name&gt;": "./index.js"</pre>
+                        <pre>}</pre>
+                        <h4>STEP 4-</h4>
+                        <p >Add a readme.md to your project and write whatever you want to about it. This will be shown on the package page.</p>
+                        <h4>STEP 5-</h4>
+                        <p >PUBLISH THE PACKAGE. Go to the package directory, open up the terminal inside it and run</p>
+                        <pre>npm publish --access=public</pre>
+                        <p>AND ITS DONE. You have successfully published the package.</p>
+                        <h4>STEP 6(Optional)-</h4>
+                        <p >It is optional but important to know how to update your package online. When you start with your npm project it is by default 1.0.0 and published as same. But if you need to change something in it and re-publish the new changes YOU HAVE TO UP THE VERSION by semantic versioning.</p>
+                        <figure  data-scroll="native">
+                            <img src="images/versionformat.png">
+                        </figure>
+                        <p>If it is a patch(very small change). You run</p>
+                        <pre>npm version patch</pre>
+                        <p>This will make your package version <strong><em>1.0.1</em></strong> and increment in future accordingly.</p>
+                        <p>If you have done a considerable change. You run</p>
+                        <pre>npm version minor</pre>
+                        <p>and your package will be now<strong><em> 1.1.0</em></strong> and for a major change, you run.</p>
+                        <pre>npm version major</pre>
+                        <p>and you now will have <strong><em>2.0.0</em></strong>.</p>
+                        <p>After that just hit <code class="markup--code markup--p-code">npm publish</code> and you have your package updated on npmjs.</p>
+                        <h3>Let’s Test&nbsp;It.</h3>
+                        <p>It works… I hope it worked out for you guys too. </p>
+                     <!-- <p>Next up this series.. <a href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" data-href="https://itnext.io/javascript-fundamentals-data-types-29ba4a49470d" class="markup--anchor markup--p-anchor" target="_blank">JavaScript Fundamentals: Data Types</a></p> -->
+                  </div>
+               </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
